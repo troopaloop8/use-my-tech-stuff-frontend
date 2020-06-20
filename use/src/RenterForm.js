@@ -1,8 +1,11 @@
 import React from 'react';
-const TechList = () => {
+
+const RenterForm = () => {
     return (
         <div>
+
         </div>
     );
 };
-export default TechList;
+
+export default RenterForm;

@@ -1,13 +1,77 @@
 .App {
   text-align: center;
-  background: linear-gradient(0deg, rgba(200,200,200,1) 0%, rgba(235,235,235,1) 100%);
+  background: linear-gradient(to bottom, #222222 0%, #000000 100%);
 }
+
+* {
+  font-family:'Orbitron', sans-serif;
+  color: white;
+}
+
 .Container {
-  color: #34495E;
   min-height: 100vh;
   font-size: 1rem;
+  letter-spacing: .15rem;
 }
+
+.Form {
+  margin: 5% 25%;
+  padding: 2% 0;
+}
+
+.FormGroup {
+  text-align: left;
+  margin: 0 3%;
+}
+
+.FormGroup-Check {
+  border: none;
+  text-align: left;
+}
+
+.Input {
+  background: none;
+  border: none;
+  border-bottom: white solid 1px;
+  margin: 10px 0;
+  width: 100%;
+  outline: none;
+  letter-spacing: .15rem;
+}
+
+.checkbox {
+  margin: 10px 0;
+}
+
 .error {
   font-size: .7rem;
   color: red;
+}
+
+Button {
+  border: none;
+  border-radius: 2px;
+  padding: 10px 20px;
+  background: linear-gradient(to bottom right, #04aa18 0%, #037711 53%);
+  color: white;
+  margin-top: 20px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+Button:hover {
+  background: linear-gradient(to bottom right, #008b12 0%, #00670d 53%);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+Button:disabled {
+  color: rgba(255, 255, 255, 0.233);
+  cursor: not-allowed;
+}
+
+
+
+.h1 {
+  margin-bottom: 20px;
 }
