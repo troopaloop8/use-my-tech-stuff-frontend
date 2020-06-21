@@ -10,17 +10,18 @@ const SignIn = () => {
         userName: "",
         password: ""
     })
-        //handling changes
-        const inputChange = e => {
-            e.persist();
-            const newForm = {
-                ...form,
-                [e.target.name]:
-                e.target.type === "checkbox" ? e.target.checked : e.target.value
-            };
-        // validateChange(e);
-        setForm(newForm);
+    
+    //handling changes
+    const inputChange = e => {
+        e.persist();
+        const newForm = {
+            ...form,
+            [e.target.name]:
+            e.target.type === "checkbox" ? e.target.checked : e.target.value
         };
+    // validateChange(e);
+    setForm(newForm);
+    };
     return (
         <div>
         <Form className = 'Form'>
@@ -42,3 +43,4 @@ const SignIn = () => {
     );
 };
 export default SignIn;
+

@@ -66,7 +66,6 @@ const SignUp = () => {
     };
 
     //handling changes
- 
     const inputChange = e => {
         e.persist();
 
@@ -89,37 +88,35 @@ const SignUp = () => {
         setFormData(newFormInput);
     }
 
-
     const [showPassword, setShowPassword] = useState(false);
     const togglePassword = () => {
         setShowPassword(showPassword ? false : true)
     }
 
-
-    //placeholder submit function so I can see some data.
+    //placeholder api so I can see some data.
     const formSubmit = e => {
         e.preventDefault();
         console.log('default',e)
 
         axios
-            .post('https://reqres.in/api/users', formData)
-            .then(res => {
-                setUsers(res.data);
-                console.log('SET POST', res.data);
+        .post('https://reqres.in/api/users', formData)
+        .then(res => {
+            setUsers(res.data);
+            console.log('SET POST', res.data);
 
-                setFormData({
-                    name:'',
-                    email:'',
-                    password:'',
-                    terms: true
-                });
+            setFormData({
+                name:'',
+                email:'',
+                password:'',
+                terms: true
+            });
 
-                // setServerError(null);
-            })
-            .catch(err => {
-                console.log('server error', err);
-                // setServerError('SERVER ERROR')
-            })
+            // setServerError(null);
+        })
+        .catch(err => {
+            console.log('server error', err);
+            // setServerError('SERVER ERROR')
+        })
     }
 
     return (
