@@ -122,9 +122,7 @@ const SignUp = () => {
     return (
 
         <Form className = 'Form' onSubmit={formSubmit}>
-        <Card>
             <h1 className = 'h1' >Sign Up</h1>
-        </Card>
 
         <FormGroup className = 'FormGroup'>
 

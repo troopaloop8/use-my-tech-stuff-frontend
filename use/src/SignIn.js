@@ -36,7 +36,7 @@ const SignIn = () => {
             </FormGroup>
             <Button>Sign In</Button>
         </Form>
-        <Link to = '/sign-up'>
+        <Link className = 'Link' to = '/sign-up'>
         Don't have an account? Sign up here.
         </Link>
         </div>

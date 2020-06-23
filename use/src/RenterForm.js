@@ -8,11 +8,10 @@ const RenterForm = () => {
     const toggle = () => setdropdownOpen((prevState) => !prevState);
 
     const [form, setForm] = useState({
-        name: '',
+        name: 'Type of electronic',
         make: '',
         price: '',
         image: '',
-        color: 'Color of device',
         mintCondition: false,
         refurbished: false,
         minorScratches: false,
@@ -41,42 +40,29 @@ const RenterForm = () => {
 
     return (
         <Form className='Form'>
-            <FormGroup>
+            <FormGroup className= 'FormGroup'>
             
-
-                <Card>
-                    <h1 className = 'h1'>Create a Listing</h1>
-                </Card>
+                <h1 className = 'h1'>Create a Listing</h1>
 
                 <FormGroup className = 'FormGroup'>
-                    <legend> 1. What type of product would you like to rent?</legend>
-                    <Input className = 'Input' type='text' name='name' value={form.name} onChange={inputChange}/>
+                    <legend> 1. What type of product would you like to list?</legend>
+                    <select className = 'select' id="name" name="name" value={form.name} onChange={inputChange}>
+                        <option value="Cell Phone">Cell Phone</option>
+                        <option value="Computer">Computer</option>
+                        <option value="TV">TV</option>
+                        <option value="Camera">Camera</option>
+                        <option value="Video Game">Video Game/Console</option>
+                        <option value="Speaker">Speaker</option>
+                    </select>
                 </FormGroup>
 
-                <FormGroup className = 'FormGroup'>
+                {/* <FormGroup className = 'FormGroup'>
                     <legend> 2. What is the make of your device?</legend>
                     <Input className = 'Input' type='text' name='make' value={form.make} onChange={inputChange}/>
-                </FormGroup>
-
-                
-                <FormGroup className = 'FormGroup'>
-
-                    <legend> 3. What is the color?</legend>
-
-                    <select className = 'select' id="color" name="color" value={form.color} onChange={inputChange}>
-                        <option value="Black">Black</option>
-                        <option value="White">White</option>
-                        <option value="Red">Red</option>
-                        <option value="Rose">Rose</option>
-                        <option value="Rose Gold">Rose Gold</option>
-                        <option value="Gold">Gold</option>
-                    </select>
-
-                </FormGroup>
+                </FormGroup> */}
 
                 <FormGroup tag = 'fieldset' className = 'FormGroup-Check'>
-                    <legend> 4. Please select the condition(s) that best describe your device:</legend>
-                    <p style={{fontSize: '.7rem'}}>-Your item <span style = {{fontWeight:'bold'}}>must</span> be in working condition-</p>
+                    <legend> 3. Please select the condition(s) that best describe your device:</legend>
 
                     <FormGroup className = 'Label-check' check>
                         <Label  check>
@@ -110,13 +96,13 @@ const RenterForm = () => {
 
                 <FormGroup className = 'FormGroup-File'>
 
-                <legend> 5. Choose an Image</legend>
-                <Input className = 'Input-File' type="file" name="file" id="exampleFile" />
+                <legend> 4. Copy and Paste an image link of your product:</legend>
+                <Input className = 'Input' type='text' name='make' value={form.make} onChange={inputChange}/>
 
                 </FormGroup>
 
                 <FormGroup className = 'FormGroup-File'>
-                    <legend> 6. Additional Information (e.g features, storage, etc.)</legend>
+                    <legend> 5. Additional Information (e.g features, storage, etc.):</legend>
                     <textarea className = 'Input-textarea' type='text' name='additionalInfo' value={form.additionalInfo} onChange={inputChange}/>
                 </FormGroup>
 
