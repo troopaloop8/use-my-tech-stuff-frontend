@@ -15,13 +15,14 @@
 }
 
 .Form {
-  margin: 0 25%;
+  margin: 0 20%;
   padding: 4% 0;
 }
 
 .FormGroup {
   text-align: left;
-  margin: 5% 3%;
+  margin: 5% 0%;
+  font-size: .8rem;
 }
 
 .FormGroup-Check {
@@ -31,18 +32,23 @@
 
 .FormGroup-File {
   text-align: left;
-  margin: 30px 0 10px 10px
+  margin: 30px 0 10px 0;
 }
 
 .Input {
   background: none;
+  border-radius: 0;
   border: none;
-  border-bottom: white solid 1px;
+  border-bottom: white solid .5px;
   margin: 15px 0;
-  width: 100%;
   outline: none;
   letter-spacing: .2rem;
   font-size: .95rem;
+}
+
+.Input:focus {
+  background: none;
+  /* outline: white; */
 }
 
 .Input-textarea {
@@ -59,7 +65,7 @@
 }
 
 .Input-check {
-  margin: 7px 0;
+  margin: 7px -20px;
 }
 
 .checkbox {
@@ -109,4 +115,20 @@ Button:disabled {
   margin-top: 15px;
 }
 
+legend {
+  font-size: 1rem;
+}
+
+.Link {
+  color: white;
+  text-decoration: none;
+  border-left: white solid 1px;
+  padding: 10px 25px;
+  margin-top: 15px;
+}
+
+.Link:hover {
+  color: white;
+
+}
 
