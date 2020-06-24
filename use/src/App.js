@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Navbar, Card} from 'reactstrap';
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import NavBar from './NavBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -74,6 +73,7 @@ function App() {
 
     <div className="App">
       <header className="Container">
+
         <NavBar/>
 
         <Route exact path = '/'>
