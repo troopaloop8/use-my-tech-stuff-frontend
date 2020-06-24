@@ -30,25 +30,24 @@
   text-align: left;
 }
 
-.FormGroup-File {
-  text-align: left;
-  margin: 30px 0 10px 0;
-}
-
 .Input {
   background: none;
   border-radius: 0;
   border: none;
   border-bottom: white solid .5px;
   margin: 15px 0;
-  outline: none;
   letter-spacing: .2rem;
   font-size: .95rem;
+  outline: none;
 }
+
+/* ::-webkit-input-placeholder { 
+  text-align:right; 
+} */
 
 .Input:focus {
   background: none;
-  /* outline: white; */
+  outline: none;
 }
 
 .Input-textarea {
@@ -129,6 +128,10 @@ legend {
 
 .Link:hover {
   color: white;
+}
 
+.Nav {
+  display: flex;
+  justify-content: flex-end
 }
 

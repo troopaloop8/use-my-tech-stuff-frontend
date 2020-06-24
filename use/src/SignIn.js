@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import {Card, Form, FormGroup, Input, Label, Button} from 'reactstrap';
+import { Form, FormGroup, Input, Button} from 'reactstrap';
 import axios from 'axios';
 import * as yup from 'yup';
-import styled from 'styled-components';
 
 const SignIn = () => {
     const [form, setForm] = useState({
