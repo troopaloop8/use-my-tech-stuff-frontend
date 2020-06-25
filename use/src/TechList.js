@@ -31,17 +31,18 @@ const TechList = (props) => {
                 props.products.map( product => {
                     return(
                     <Col sm='4'>
-                        <Card style={{marginTop: "15%"}} key={product.prod_id}>
-                        <CardTitle style={{color:"green"}}>{product.name}</CardTitle>
+                        <Card className='Card' style={{marginTop: "15%"}} key={product.prod_id}>
+                           
+
+                           
                         <Link className = 'Link' to = {`/product/${product.prod_id}`}>
+                        <CardTitle style={{color:"green", textDecoration:"underline"}}>{product.name}</CardTitle>
                         <CardImg style={{minHeight: "150px", maxWidth:"120px", align: "center"}} src={product.image_URL} />
                         </Link>
                         <CardText style={{color:"green"}}>
                         Price: {product.price}
                         </CardText>
-                        <CardText style={{color:"green"}}>
-                        Description: {product.content}
-                        </CardText>
+                    
                         </Card>
                     </Col>
                     )
