@@ -7,6 +7,7 @@ import {
   Link,
   useRouteMatch
 } from "react-router-dom";
+
 // we will be importing and adding a lot of items to this component
 function Product(props) {
   // props.items --> all of our items
@@ -48,6 +49,7 @@ function Product(props) {
         </div>
     </Card>
       </div>
+
   );
 }
 export default Product;

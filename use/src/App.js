@@ -79,15 +79,10 @@ useEffect(() => {
     return item.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
     setData(filteredData);
-  
 }, [searchTerm])
-
-
   return (
-    
     <div className="App">
       <label>Search for Product Here: <input style={{color: "green"}} type="text" name="search" value={searchTerm} onChange={handleChange} /> </label>
-
       <header className="Container">
         <NavBar/>
         <Route exact path = '/'>

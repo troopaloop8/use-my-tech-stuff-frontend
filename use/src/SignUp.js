@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {Card, Form, FormGroup, Input, Label, Button} from 'reactstrap';
+import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import axios from 'axios';
 import * as yup from 'yup';
-import styled from 'styled-components';
 
 
 const SignUp = () => {
@@ -122,9 +121,7 @@ const SignUp = () => {
     return (
 
         <Form className = 'Form' onSubmit={formSubmit}>
-        <Card>
             <h1 className = 'h1' >Sign Up</h1>
-        </Card>
 
         <FormGroup className = 'FormGroup'>
 

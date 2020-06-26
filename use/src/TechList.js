@@ -3,7 +3,10 @@ import axios from "axios"
 import { Card, CardTitle, Container, CardImg, Row, Col, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import './App.css';
+
+
 const TechList = (props) => {
+
     //setting up state
     // const[tech,setTech] = useState({});
     //setting up useEffect
@@ -30,6 +33,7 @@ const TechList = (props) => {
                     <Col sm='4'>
                         <Card className='Card' style={{marginTop: "15%"}} key={product.prod_id}>
                            
+
                            
                         <Link className = 'Link' to = {`/product/${product.prod_id}`}>
                         <CardTitle style={{color:"green", textDecoration:"underline"}}>{product.name}</CardTitle>
