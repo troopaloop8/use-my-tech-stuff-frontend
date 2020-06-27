@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Button} from 'reactstrap';
-import axios from 'axios';
+import {axiosWithAuth} from './utils/AxiosWithAuth';
 import * as yup from 'yup';
 
 const SignIn = () => {
@@ -9,17 +9,17 @@ const SignIn = () => {
     const [users, setUsers] = useState();
 
     const [form, setForm] = useState({
-        userName: '',
+        username: '',
         password: ''
     })
 
     const [errors, setErrors] = useState({
-        userName: '',
+        username: '',
         password: '',
     });
 
     const formSchema = yup.object().shape({
-        userName: yup.string().required('Username is required'),
+        username: yup.string().required('username is required'),
         password: yup.string().required('Password is required')
     });
 
@@ -62,16 +62,17 @@ const SignIn = () => {
     const formSubmit = e => {
         e.preventDefault();
 
-        axios
-        .post('https://reqres.in/api/users', form)
+        axiosWithAuth()
+        .post('auth/login', form)
         .then(res => {
             setUsers(res.data);
             console.log('SET POST SIGN IN', res.data);
-
+    
             setForm({
-                name:'',
+                username:'',
                 password:''
             });
+            localStorage.setItem("token", res.data.token)
 
         })
         .catch(err => {
@@ -86,8 +87,8 @@ const SignIn = () => {
             <h1>Sign In</h1>
             <FormGroup className = 'FormGroup'>
                 <legend>Username</legend>
-                <Input className = 'Input' type="text" name="userName" value={form.userName} onChange={inputChange}/>
-                {errors.userName.length > 0 ? <p className="error">{errors.userName}</p> : null}
+                <Input className = 'Input' type="text" name="username" value={form.username} onChange={inputChange}/>
+                {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
             </FormGroup>
             <FormGroup className = 'FormGroup'>
                 <legend>Password</legend>

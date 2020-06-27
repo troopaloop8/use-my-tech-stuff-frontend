@@ -13,28 +13,25 @@ const SignUp = () => {
 
     //state for the form's default state
     const [formData, setFormData] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
-        renter: false
     });
 
     //creating a state for any errors
     const [errors, setErrors] = useState({
-        userName: '',
+        username: '',
         email: '',
-        password: '',
-        renter: ''
+        password: ''
     });
 
     const formSchema = yup.object().shape({
-        userName: yup.string().required('Please enter name'),
+        username: yup.string().required('Please enter name'),
         email: yup 
             .string()
             .email('Must be a valid email address')
             .required('Please enter email address'),
-        password: yup.string().required('Password is required'),
-        renter: yup.boolean()
+        password: yup.string().required('Password is required')
     });
 
     //enables button if formData is valid in according to formSchema
@@ -98,16 +95,15 @@ const SignUp = () => {
         console.log('default',e)
 
         axios
-        .post('https://reqres.in/api/users', formData)
+        .post('https://usemy-techstuff.herokuapp.com/api/auth/register', formData)
         .then(res => {
             setUsers(res.data);
             console.log('SET POST SIGN UP', res.data);
 
             setFormData({
-                name:'',
+                username:'',
                 email:'',
                 password:'',
-                renter: true
             });
         })
         .catch(err => {
@@ -124,8 +120,8 @@ const SignUp = () => {
 
             <FormGroup className = 'FormGroup'>
                 <legend>Username</legend>
-                <Input className = 'Input' type='text' name='userName' value={formData.userName} onChange={inputChange}/>
-                {errors.userName.length > 0 ? <p className="error">{errors.userName}</p> : null}
+                <Input className = 'Input' type='text' name='username' value={formData.username} onChange={inputChange}/>
+                {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
             </FormGroup>
 
             <FormGroup className = 'FormGroup'>
@@ -142,20 +138,14 @@ const SignUp = () => {
 
             <FormGroup className = 'FormGroup-Check' tag='fieldset'>
 
-                <FormGroup className = 'checkbox' check>
+                {/* <FormGroup className = 'checkbox' check>
                         <Label check>
                             <Input type="checkbox" id="togglePassword" onClick = {togglePassword} /> 
                             <span style = {{margin: '-5px 0'}}>Show password</span>
                         </Label>
-                    </FormGroup>
+                    </FormGroup> */}
 
-                <FormGroup className = 'checkbox' check>
-                    <Label check>
-                        <Input type='checkbox' data-cy='checkbox2' name='renter' checked={formData.renter} onChange={inputChange}/>
-                        I would like to be a renter.
-                    </Label>
-                    {errors.renter.length > 0 ? <p className="error">{errors.renter}</p> : null}
-                </FormGroup>
+
 
             </FormGroup>
             <div style = {{textAlign: 'center'}}>

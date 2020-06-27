@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Route} from 'react-router-dom';
+import PrivateRoutes from './utils/PrivateRoutes';
 import NavBar from './NavBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -36,21 +37,22 @@ useEffect(() => {
         <NavBar/>
         </div>
       
+        
         <Route exact path = '/'>
-          <TechList products = {data}/>
-        </Route>
-        <Route path = '/sign-in'>
           <SignIn/>
         </Route>
         <Route path = '/sign-up'>
           <SignUp/>
         </Route>
-        <Route path = '/renter-form'>
+        <PrivateRoutes exact path = '/product' component={TechList}>
+          <TechList products = {data}/>
+        </PrivateRoutes>
+        <PrivateRoutes path = '/renter-form' component={RenterForm}>
           <RenterForm/>
-        </Route>
-        <Route path = '/product/:itemId'>
+        </PrivateRoutes>
+        <PrivateRoutes path = '/product/:itemId' component={Product}>
           <Product product = {data}/>
-        </Route>
+        </PrivateRoutes>
       </header>
     </div>
   );
