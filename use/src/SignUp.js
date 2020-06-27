@@ -16,7 +16,7 @@ const SignUp = () => {
         name: '',
         email: '',
         password: '',
-        terms: false
+        renter: false
     });
 
     //creating a state for any errors
@@ -24,7 +24,7 @@ const SignUp = () => {
         userName: '',
         email: '',
         password: '',
-        terms: ''
+        renter: ''
     });
 
     const formSchema = yup.object().shape({
@@ -34,7 +34,7 @@ const SignUp = () => {
             .email('Must be a valid email address')
             .required('Please enter email address'),
         password: yup.string().required('Password is required'),
-        terms: yup.boolean().oneOf([true], 'Please accept terms')
+        renter: yup.boolean()
     });
 
     //enables button if formData is valid in according to formSchema
@@ -49,7 +49,7 @@ const SignUp = () => {
     const validateChange = e => {
         yup
             .reach(formSchema, e.target.name)
-            .validate(e.target.name === 'terms' ? e.target.checked : e.target.value)
+            .validate(e.target.name === 'renter' ? e.target.checked : e.target.value)
             .then(valid => {
                 setErrors({
                     ...errors,
@@ -70,17 +70,17 @@ const SignUp = () => {
 
         let checkBox = true;
 
-        if(e.target.name === 'terms') {
+        if(e.target.name === 'renter') {
             checkBox = e.target.checked;
         } else {
-            checkBox = formData.terms;
+            checkBox = formData.renter;
         }
 
         const newFormInput = {
             ...formData,
-            terms: checkBox,
+            renter: checkBox,
             [e.target.name]: 
-                e.target.name === 'terms' ? e.target.checked : e.target.value
+                e.target.name === 'renter' ? e.target.checked : e.target.value
         };
 
         validateChange(e);
@@ -101,20 +101,17 @@ const SignUp = () => {
         .post('https://reqres.in/api/users', formData)
         .then(res => {
             setUsers(res.data);
-            console.log('SET POST', res.data);
+            console.log('SET POST SIGN UP', res.data);
 
             setFormData({
                 name:'',
                 email:'',
                 password:'',
-                terms: true
+                renter: true
             });
-
-            // setServerError(null);
         })
         .catch(err => {
             console.log('server error', err);
-            // setServerError('SERVER ERROR')
         })
     }
 
@@ -154,10 +151,10 @@ const SignUp = () => {
 
                 <FormGroup className = 'checkbox' check>
                     <Label check>
-                        <Input type='checkbox' data-cy='checkbox2' name='terms' checked={formData.terms} onChange={inputChange}/>
-                        Terms and Conditions
+                        <Input type='checkbox' data-cy='checkbox2' name='renter' checked={formData.renter} onChange={inputChange}/>
+                        I would like to be a renter.
                     </Label>
-                    {errors.terms.length > 0 ? <p className="error">{errors.terms}</p> : null}
+                    {errors.renter.length > 0 ? <p className="error">{errors.renter}</p> : null}
                 </FormGroup>
 
             </FormGroup>
